@@ -1,7 +1,8 @@
 #!/Applications/anaconda/envs/Python3/bin
 
 def main():
-    print("Hello, World!")
+    x = input("Enter a number: ")
+    print("Your number is {}".format(x))
 
 
 if __name__ == '__main__':
