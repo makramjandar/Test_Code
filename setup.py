@@ -1,6 +1,8 @@
 #!/Applications/anaconda/envs/Python3/bin
 
 def main():
+    # Python 3.X Quick Start Code Examples
+
     # Get input from user and display it
     feels = input("On a scale of 1-10, how do you feel? ")
     print("You selected: {}".format(feels))
@@ -9,6 +11,7 @@ def main():
     integer = 42
     floater = 3.14
     stringer = 'Hello, World!'
+    noner = None # singleton value, check: if var is None
     tupler = (1, 2, 3)
     lister = [1, 2, 3]
     dicter = dict(
@@ -67,6 +70,17 @@ def main():
     for index, letter in enumerate(stringer):
         print("Index: {} is letter: {}".format(index, letter))
 
+    # List comprehensions
+    # Create a new list - [expression for variable in list]
+    l_one = [0, 1, 2, 3, 4, 5]
+    l_squares = [x*x for x in l_one]
+    print(l_squares)
+
+    # Filter a list - [expression for variable in list if condition]
+    l_odd = [x for x in l_squares if x % 2 == 1]
+    print(l_odd)
+
+    return 0
 
 if __name__ == '__main__':
     main()
