@@ -1,7 +1,7 @@
 #!/Applications/anaconda/envs/Python3/bin
 
 def main():
-    # Python 3.X Quick Start Code Examples
+    '''Python 3 Quick Start Code Examples'''
 
     # Get input from user and display it
     feels = input("On a scale of 1-10, how do you feel? ")
