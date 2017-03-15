@@ -59,12 +59,15 @@ def main():
         a, b = b, a + b
     print()
 
+    print("For loop printing parts of {}".format(stringer))
     for letter in stringer:
+        # Don't print the vowels
         if letter in 'aeiouAEIOU':
             continue
+        # Stop looping at punctuation
         if letter in '!@#$%^&*.,?;:-_+=|':
             break
-        print(letter)
+        print(letter, end=" ")
 
     # Get an index using a for loop with enumerate()
     for index, letter in enumerate(stringer):
