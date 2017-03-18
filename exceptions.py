@@ -23,6 +23,10 @@ def main():
     except ValueError as e:
         print('Bad filename:', e)
 
+    testBool = True
+    if testBool:
+        raise CustomException('NOOOOOO!')
+
     return 0
 
 
@@ -32,6 +36,13 @@ def readDocFile(filename):
         return f.readlines()
     else:
         raise ValueError('Filename must end with .doc')
+
+
+class CustomException(Exception):
+    def __init__(self, error):
+        super(Exception, self).__init__(error)
+        print(error)
+
 
 
 if __name__ == '__main__':
