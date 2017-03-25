@@ -5,15 +5,41 @@ import re
 def main():
     '''Examples Using Regular Expressions in Python'''
 
-    fh = open('sonnets.txt')
+    printRomanNumerals('sonnets.txt')
+    replaceWord('sonnets.txt', 'beauty', 'vomit')
+
+    return 0
+
+
+def printRomanNumerals(filename):
+    '''Reads filename data and prints Roman Numerals followed by .'''
+
+    fh = open(filename, 'r')
     # Use raw string for backslash, other special characters
-    # Prints the Roman Numerals before each sonnet
     pattern = re.compile(r'[IVXLCDM]+\.')
     for line in fh:
+        match = re.search(pattern, line)
+        if match:
+            print(match.group())
+
+
+    fh.close()
+    return 0
+
+
+def replaceWord(filename, original, new):
+    '''Prints any line with original word in it replaced with new word'''
+
+    print('\nTime to replace the word {} with {} and print the improved line.\n'.format(original, new))
+
+    fh = open(filename, 'r')
+    pattern = re.compile(original)
+    for line in fh:
         if re.search(pattern, line):
-            print(line, end='')
+            print(pattern.sub(new, line), end='')
+            #print(re.sub(pattern, new, line), end='')
 
-
+    fh.close()
     return 0
 
 
