@@ -7,6 +7,7 @@ def main():
 
     printRomanNumerals('sonnets.txt')
     replaceWord('sonnets.txt', 'beauty', 'vomit')
+    #replaceWord('sonnets.txt', 'love', 'shart')
 
     return 0
 
