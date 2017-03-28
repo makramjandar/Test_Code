@@ -3,17 +3,25 @@
 import socket
 
 def main():
-    '''Example Creating a Simple Cliend Using the socket Module'''
+    '''Example Creating a Simple Client Using the socket Module'''
 
     HOST = '127.0.0.1'
     PORT = 50002
+    incomingMessage = ''
+    outgoingMessage = ''
 
     # s is socket object for IPv4, TCP
     s = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
     s.connect((HOST, PORT))
-    s.send('Top o the morning to you!'.encode('utf-8'))
-    data = s.recv(1024)
-    print(data.decode('utf-8'))
+
+    while(outgoingMessage != 'EXIT'):
+        outgoingMessage = input('Reply (type EXIT to esc): ')
+        s.send(outgoingMessage.encode('utf-8'))
+        incomingMessage = s.recv(1024).decode('utf-8')
+        if (incomingMessage == 'EXIT'):
+            print('The server has chosen to exit. Goodbye.')
+            break
+        print(incomingMessage)
 
     s.close()
 

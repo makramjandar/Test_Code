@@ -7,15 +7,24 @@ def main():
 
     HOST = ''
     PORT = 50002
+    incomingMessage = ''
+    outgoingMessage = ''
 
     # s is socket object for IPv4, TCP
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((HOST, PORT))
     s.listen(1)
     connection, address = s.accept()
-    message = connection.recv(1024)
-    print(message.decode('utf-8'))
-    connection.send('A good day to you, my friend!'.encode('utf-8'))
+
+    while(outgoingMessage != 'EXIT'):
+        incomingMessage = connection.recv(1024).decode('utf-8')
+        if (incomingMessage == 'EXIT'):
+            print('The client wishes to exit. Farewell, sweet server.')
+            connection.send('Epic chat, until next time!'.encode('utf-8'))
+            break
+        print(incomingMessage)
+        outgoingMessage = input('Reply (type EXIT to esc): ')
+        connection.send(outgoingMessage.encode('utf-8'))
 
     connection.close()
     s.close()
