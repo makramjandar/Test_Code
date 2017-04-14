@@ -47,7 +47,16 @@ def main():
     correlated = np.corrcoef(np_city[:,0], np_city[:,1])
     print("Correlation coefficients: {}".format(correlated))
 
+    # Create a transposed 2D array
+    storeA = [1, 1, 2, 2, 3, 3]
+    costA = [86, 99, 84, 83, 90, 89]
+    np_cols = np.column_stack((storeA, costA))
+    print(np_cols)
 
+    # Create column stack and get mean of second column
+    costs = np.column_stack(([1, 1, 2, 2, 3, 3, 2, 1], [7, 7, 5, 4, 5, 5, 5, 7]))
+    mean_costs = np.mean(costs[:,1])
+    print("Mean costs: {}".format(mean_costs))
 
 
 
