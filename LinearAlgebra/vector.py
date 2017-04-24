@@ -6,12 +6,12 @@ import math
 
 class Vector(object):
 
-    SAME_DIMENSION_ERROR = "Vectors must be same dimension."
-    CANNOT_NORMALIZE_ZERO_VECTOR_MSG = "Unable to normalize zero vector."
-    CANNOT_FIND_ANGLE_BETWEEN_VECTORS = "Unable to find angle - at least one vector is Zero Vector."
-    NO_UNIQUE_PARALLEL_COMPONENT_MSG = "Unable to calculate a unique parallel component."
-    NO_UNIQUE_ORTHOGONAL_COMPONENT_MSG = "Unable to calculate a unique orthogonal component."
-    CAN_ONLY_CALCULATE_FOR_2D_OR_3D_VECTORS_MSG = "Function only defined for 2D and 3D vectors."
+    SAME_DIMENSION_ERROR = "Vectors must be same dimension"
+    CANNOT_NORMALIZE_ZERO_VECTOR_MSG = "Unable to normalize zero vector"
+    CANNOT_FIND_ANGLE_BETWEEN_VECTORS = "Unable to find angle - at least one vector is Zero Vector"
+    NO_UNIQUE_PARALLEL_COMPONENT_MSG = "Unable to calculate a unique parallel component"
+    NO_UNIQUE_ORTHOGONAL_COMPONENT_MSG = "Unable to calculate a unique orthogonal component"
+    CAN_ONLY_CALCULATE_FOR_2D_OR_3D_VECTORS_MSG = "Function only defined for 2D and 3D vectors"
 
     def __init__(self, coordinates):
         try:
@@ -21,10 +21,10 @@ class Vector(object):
             self.dimension = len(coordinates)
 
         except ValueError:
-            raise ValueError("The coordinates must be non-empty.")
+            raise ValueError("The coordinates must be non-empty")
 
         except TypeError:
-            raise TypeError("The coordinates must be an iterable.")
+            raise TypeError("The coordinates must be an iterable")
 
 
     def __str__(self):
@@ -63,6 +63,13 @@ class Vector(object):
             return Vector(result)
 
 
+    def __iter__(self):
+        i = 0
+        while i < self.dimension:
+            yield self.coordinates[i]
+            i += 1
+
+
     def scale(self, c):
         # Returns new vector where each item in self is scaled by c
         scaled = [c*x for x in self.coordinates]
@@ -91,7 +98,7 @@ class Vector(object):
         return sum(product)
 
 
-    def angle(self, v, in_degrees=False):
+    def angle(self, v, in_degrees=False, tolerance=1e-10):
         # Returns the angle between two vectors in either radians or degrees
         # math.acos() returns angle in radians
         # math.degrees(rad) converts angle in radians to degrees
@@ -99,7 +106,14 @@ class Vector(object):
         try:
             u1 = self.normalization()
             u2 = v.normalization()
-            radians = math.acos(u1.dot_product(u2))
+            dot_prod = u1.dot_product(u2)
+            if (abs(dot_prod - 1) < tolerance):
+                # Very close to 1
+                dot_prod = 1
+            elif (abs(dot_prod + 1) < tolerance):
+                # Very close to -1
+                dot_prod = -1
+            radians = math.acos(dot_prod)
             if in_degrees:
                 return math.degrees(radians)
             else:
