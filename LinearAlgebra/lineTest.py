@@ -6,12 +6,10 @@ from line import Line
 
 def main():
     test_intersections = True
-    test_errors = False # Includes examples to deliberately throw errors
-
 
     # Test if lines are parallel, same, or have an intersection
     if test_intersections:
-        print("=== Parallel, Same, or Intersecting Lines Quiz ===")
+        print("\n=== Parallel, Same, or Intersecting Lines Quiz ===\n")
 
         l_1 = Line(Vector([4.046, 2.836]), 1.21)
         l_2 = Line(Vector([10.115, 7.09]), 3.025)
@@ -36,33 +34,6 @@ def main():
         print("Parallel: {}".format(l_5.is_parallel(l_6)))
         print("Same line: {}".format(l_5 == l_6))
         print("Intersection: {}\n".format(l_5.intersection(l_6)))
-
-    # Test magnitude and normalization of vectors
-    if False:
-        print("\n=== Planes in 3D Quiz ===")
-
-        vec6 = Vector([-0.221, 7.437])
-        print(vec6)
-        print("Magnitude: {}\n".format(vec6.magnitude()))
-
-        vec7 = Vector([8.813, -1.331, -6.247])
-        print(vec7)
-        print("Magnitude: {}\n".format(vec7.magnitude()))
-
-        vec8 = Vector([5.581, -2.136])
-        print(vec8)
-        print("Normalization: {}\n".format(vec8.normalization()))
-
-        vec9 = Vector([1.996, 3.108, -4.554])
-        print(vec9)
-        print("Normalization: {}\n".format(vec9.normalization()))
-
-        # Error test Zero Vector
-        if test_errors:
-            vec_zero = Vector([0, 0, 0])
-            print(vec_zero)
-            print("Normalization: {}\n".format(vec_zero.normalization()))
-
 
 
 if __name__ == '__main__':

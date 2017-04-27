@@ -15,7 +15,7 @@ def main():
 
     # Test addition, subtraction, and scalar multiplication of vectors
     if test_operators:
-        print("=== Addition, Subtraction, and Scalar Multiplication Quiz ===")
+        print("\n=== Addition, Subtraction, and Scalar Multiplication Quiz ===\n")
 
         vec1 = Vector([8.218, -9.341])
         vec2 = Vector([-1.129, 2.111])
@@ -36,7 +36,7 @@ def main():
 
     # Test magnitude and normalization of vectors
     if test_mag_and_norm:
-        print("\n=== Magnitude and Normalization Quiz ===")
+        print("\n=== Magnitude and Normalization Quiz ===\n")
 
         vec6 = Vector([-0.221, 7.437])
         print(vec6)
@@ -62,7 +62,7 @@ def main():
 
     # Test dot products and angles between vectors
     if test_dot_and_angles:
-        print("\n=== Dot Products and Angles between Vectors Quiz ===")
+        print("\n=== Dot Products and Angles between Vectors Quiz ===\n")
 
         vec10 = Vector([7.887, 4.138])
         vec11 = Vector([-8.802, 6.776])
@@ -95,7 +95,7 @@ def main():
         print(vec_b)
         print("Dot product: {}".format(vec_a.dot_product(vec_b)))
         print("Angle (in radian): {}".format(vec_a.angle(vec_b)))
-        print("Angle (in degrees): {}".format(vec_a.angle(vec_b, True)))
+        print("Angle (in degrees): {}\n".format(vec_a.angle(vec_b, True)))
 
         if test_errors:
             vec_zero = Vector([0, 0, 0])
@@ -106,7 +106,7 @@ def main():
 
     # Test Parallel and Orthogonal
     if test_parallel_orthogonal:
-        print("\n=== Parallel and Orthogonal Quiz ===")
+        print("\n=== Parallel and Orthogonal Quiz ===\n")
 
         vec18 = Vector([-7.579, -7.880])
         vec19 = Vector([22.737, 23.64])
@@ -139,7 +139,7 @@ def main():
 
     # Test Projection of Vectors and Component of Vector Orthogonal to b
     if test_vector_projection:
-        print("\n=== Projection of Vectors Quiz ===")
+        print("\n=== Projection of Vectors Quiz ===\n")
 
         vec26 = Vector([3.039, 1.879])
         b1 = Vector([0.825, 2.036])
@@ -165,7 +165,7 @@ def main():
 
     # Test Cross Product of Two 3D Vectors
     if test_cross_product:
-        print("\n=== Cross Product of Two 3D Vectors Quiz ===")
+        print("\n=== Cross Product of Two 3D Vectors Quiz ===\n")
 
         vec29 = Vector([8.462, 7.893, -8.187])
         vec30 = Vector([6.984, -5.975, 4.778])
