@@ -62,6 +62,7 @@ class LinearSystem(object):
 
     def compute_triangular_form(self):
         system = deepcopy(self)
+        
         return system
 
 
