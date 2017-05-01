@@ -62,8 +62,48 @@ class LinearSystem(object):
 
     def compute_triangular_form(self):
         system = deepcopy(self)
-        
+        first_nonzero_terms = system.indices_of_first_nonzero_terms_in_each_row()
+        num_equations = len(system)
+        num_variables = system.dimension
+
+        j = 0
+        for i in range(num_equations):
+            while j < num_variables:
+                # Get the jth coefficient in equation i
+                c = system.planes[i].normal_vector.coordinates[j]
+                if LinearSystem.is_near_zero(c):
+                    swap_succeeded = system.swap_with_row_below_for_nonzero_coefficient_if_able(i, j)
+                    if not swap_succeeded:
+                        j += 1
+                        continue
+
+                system.clear_coefficients_below(i, j)
+                j += 1
+                break
+
         return system
+
+    def swap_with_row_below_for_nonzero_coefficient_if_able(self, row, col):
+        num_equations = len(self)
+
+        for k in range(row+1, num_equations):
+            coefficient = self.planes[k].normal_vector.coordinates[col]
+            if not LinearSystem.is_near_zero(coefficient):
+                self.swap_rows(row, k)
+                return True
+
+        return False
+
+
+    def clear_coefficients_below(self, row, col):
+        num_equations = len(self)
+        beta = self.planes[row].normal_vector.coordinates[col]
+
+        for k in range(row+1, num_equations):
+            n = self[k].normal_vector.coordinates
+            gamma = n[col]
+            alpha = -gamma / beta
+            self.add_multiple_times_row_to_row(alpha, row, k)
 
 
     def indices_of_first_nonzero_terms_in_each_row(self):
@@ -131,3 +171,9 @@ class LinearSystem(object):
 
 # print MyDecimal('1e-9').is_near_zero()
 # print MyDecimal('1e-11').is_near_zero()
+p0 = Plane(Vector([1, 0, 0]), 1)
+p1 = Plane(Vector([0, 1, 0]), 2)
+p2 = Plane(Vector([0, 0, 1]), 3)
+s = LinearSystem([p0, p1, p2])
+
+print(s.indices_of_first_nonzero_terms_in_each_row())
