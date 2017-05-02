@@ -4,10 +4,10 @@
 from copy import deepcopy
 
 from vector import Vector
-from plane import Plane
+from hyperplane import Hyperplane
 
 
-class LinearSystem(object):
+class LinearSystemHyper(object):
 
     ALL_PLANES_MUST_BE_IN_SAME_DIM_MSG = ('All planes in the system should live in the same dimension')
     NO_SOLUTIONS_MSG = 'No solutions'
@@ -62,7 +62,7 @@ class LinearSystem(object):
 
         new_n = orig_n.scale(coefficient)
         new_k = coefficient * orig_k
-        self.planes[row] = Plane(normal_vector=new_n, constant_term=new_k)
+        self.planes[row] = Hyperplane(normal_vector=new_n, constant_term=new_k)
 
 
     def add_multiple_times_row_to_row(self, coefficient, row_to_add,
@@ -82,7 +82,7 @@ class LinearSystem(object):
         new_n = rta_scaled_n + rtbat_n
         new_k = rta_scaled_k + rtbat_k
 
-        self.planes[row_to_be_added_to] = Plane(normal_vector=new_n, constant_term=new_k)
+        self.planes[row_to_be_added_to] = Hyperplane(normal_vector=new_n, constant_term=new_k)
 
 
     def indices_of_first_nonzero_terms_in_each_row(self):
@@ -95,7 +95,7 @@ class LinearSystem(object):
             try:
                 indices[i] = p.first_nonzero_index(p.normal_vector)
             except Exception as e:
-                if str(e) == Plane.NO_NONZERO_ELTS_FOUND_MSG:
+                if str(e) == Hyperplane.NO_NONZERO_ELTS_FOUND_MSG:
                     continue
                 else:
                     raise e
@@ -114,7 +114,7 @@ class LinearSystem(object):
             while j < num_variables:
                 # Get the jth coefficient in equation i
                 c = system.planes[i].normal_vector.coordinates[j]
-                if LinearSystem.is_near_zero(c):
+                if LinearSystemHyper.is_near_zero(c):
                     swap_succeeded = system.swap_with_row_below_for_nonzero_coefficient_if_able(i, j)
                     if not swap_succeeded:
                         j += 1
@@ -132,7 +132,7 @@ class LinearSystem(object):
 
         for k in range(row+1, num_equations):
             coefficient = self.planes[k].normal_vector.coordinates[col]
-            if not LinearSystem.is_near_zero(coefficient):
+            if not LinearSystemHyper.is_near_zero(coefficient):
                 self.swap_rows(row, k)
                 return True
 
@@ -203,7 +203,7 @@ class LinearSystem(object):
             except Exception as e:
                 if str(e) == "No nonzero elements found":
                     constant_term = p.constant_term
-                    if not LinearSystem.is_near_zero(constant_term):
+                    if not LinearSystemHyper.is_near_zero(constant_term):
                         raise Exception(self.NO_SOLUTIONS_MSG)
 
                 else:
@@ -313,24 +313,3 @@ class Parametrization(object):
                                              free_var + 1)
             output += '\n'
         return output
-
-
-
-
-# p0 = Plane(Vector([1,1,1]), 1)
-# p1 = Plane(Vector([0,1,0]), 2)
-# p2 = Plane(Vector([1,1,-1]), 3)
-# p3 = Plane(Vector([1,0,-2]), 2)
-#
-# s = LinearSystem([p0,p1,p2,p3])
-#
-# print(s.indices_of_first_nonzero_terms_in_each_row())
-# print("{},{},{},{}".format(s[0],s[1],s[2],s[3]))
-# print(len(s))
-# print(s)
-#
-# s[0] = p1
-# print(s)
-
-# print MyDecimal('1e-9').is_near_zero()
-# print MyDecimal('1e-11').is_near_zero()

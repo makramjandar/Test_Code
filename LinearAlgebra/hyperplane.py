@@ -4,16 +4,23 @@
 from vector import Vector
 
 
-class Plane(object):
+class Hyperplane(object):
 
     NO_NONZERO_ELTS_FOUND_MSG = "No nonzero elements found"
+    EITHER_DIM_OR_NORMAL_VEC_MUST_BE_PROVIDED_MSG = "Either the dimension of the hyperplane or the normal vector must be provided"
 
-    def __init__(self, normal_vector=None, constant_term=None):
-        self.dimension = 3
+    def __init__(self, dimension=None, normal_vector=None, constant_term=None):
 
-        if not normal_vector:
+        if not dimension and not normal_vector:
+            raise Exception(self.EITHER_DIM_OR_NORMAL_VEC_MUST_BE_PROVIDED_MSG)
+
+        elif not normal_vector:
+            self.dimension = dimension
             all_zeros = [0]*self.dimension
             normal_vector = Vector(all_zeros)
+
+        else:
+            self.dimension = normal_vector.dimension
         self.normal_vector = normal_vector
 
         if not constant_term:
@@ -29,14 +36,14 @@ class Plane(object):
             c = self.constant_term
             basepoint_coords = [0]*self.dimension
 
-            initial_index = Plane.first_nonzero_index(n)
+            initial_index = Hyperplane.first_nonzero_index(n)
             initial_coefficient = n[initial_index]
 
             basepoint_coords[initial_index] = c/initial_coefficient
             self.basepoint = Vector(basepoint_coords)
 
         except Exception as e:
-            if str(e) == Plane.NO_NONZERO_ELTS_FOUND_MSG:
+            if str(e) == Hyperplane.NO_NONZERO_ELTS_FOUND_MSG:
                 self.basepoint = None
             else:
                 raise e
@@ -69,7 +76,7 @@ class Plane(object):
         n = self.normal_vector.coordinates
 
         try:
-            initial_index = Plane.first_nonzero_index(n)
+            initial_index = Hyperplane.first_nonzero_index(n)
             terms = [write_coefficient(n[i], is_initial_term=(i==initial_index)) + 'x_{}'.format(i+1)
                      for i in range(self.dimension) if round(n[i], num_decimal_places) != 0]
             output = ' '.join(terms)
@@ -101,7 +108,7 @@ class Plane(object):
                 return False
             else:
                 diff = self.constant_term - p.constant_term
-                return Plane.is_near_zero(diff)
+                return Hyperplane.is_near_zero(diff)
         elif p.normal_vector.is_zero():
             return False
 
@@ -117,9 +124,9 @@ class Plane(object):
     @staticmethod
     def first_nonzero_index(iterable):
         for k, item in enumerate(iterable):
-            if not Plane.is_near_zero(item):
+            if not Hyperplane.is_near_zero(item):
                 return k
-        raise Exception(Plane.NO_NONZERO_ELTS_FOUND_MSG)
+        raise Exception(Hyperplane.NO_NONZERO_ELTS_FOUND_MSG)
 
     @staticmethod
     def is_near_zero(number, eps=1e-10):
