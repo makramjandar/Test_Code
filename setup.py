@@ -37,6 +37,7 @@ def main():
         # print("{} is equal to {}".format(num1, num2))
         pass
 
+    # Python version of ternary operator
     bigger = num1 if num1 >= num2 else num2
     smaller = num1 if num1 < num2 else num2
     # print("Conditional statment says {} is greater than or equal to {}".format(bigger, smaller))
