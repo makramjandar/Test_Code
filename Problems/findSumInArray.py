@@ -13,7 +13,8 @@ def main():
     for item in tests:
         try:
             temp_result = two_sum(item[0], item[1])
-            if temp_result[0] == item[2][0] and temp_result[1] == item[2][1]:
+            # if temp_result[0] == item[2][0] and temp_result[1] == item[2][1]:
+            if temp_result == item[2]:
                 print('PASSED: two_sum({}, {}) returned {}'.format(item[0], item[1], temp_result))
             else:
                 print('FAILED: two_sum({}, {}) returned {}, should have returned {}'.format(item[0], item[1], temp_result, item[2]))
