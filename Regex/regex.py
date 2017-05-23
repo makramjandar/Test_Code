@@ -17,6 +17,8 @@ def printRomanNumerals(filename):
 
     fh = open(filename, 'r')
     # Use raw string for backslash, other special characters
+    # To access capturing groups: match.group(0) = full match
+    # match.group(1) first captured group, etc.
     pattern = re.compile(r'[IVXLCDM]+\.')
     for line in fh:
         match = re.search(pattern, line)
