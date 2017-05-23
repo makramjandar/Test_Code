@@ -38,21 +38,12 @@ def is_power_of_two(val):
         if type(val) is not int:
             raise TypeError('Input must be an integer')
 
-        # Trivial cases
+        # A number is a power of two if exactly 1 bit is 1
+        # Check this with n & (n-1)
         if val <= 0:
             return False
 
-        if val == 1:
-            return True
-
-        # Repeat divisions by 2 until val = 2
-        while val > 1:
-            if val % 2 == 1:
-                return False
-
-            val /= 2
-
-        return True
+        return (val & (val - 1)) == 0
 
 
 if __name__ == '__main__':
