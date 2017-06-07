@@ -1,3 +1,3 @@
 # Test_Code
 
-Python-based algorithms and templates.
+Python example code and one-off problems in one place to quickly check syntax or methodology.
