@@ -59,13 +59,13 @@ def rotate_nbyn_img(image):
     Input: image represented by an NxN matrix
     Output: NxN matrix
     '''
-    N = len(image)
-
     # Input checks
     if type(image) is not list:
         raise TypeError('Image must be a list')
     if type(image[0]) is not list:
-        raise TypeError('Image must be a list')
+        raise TypeError('Image must be a list of lists')
+
+    N = len(image)
     if N != len(image[0]):
         raise ValueError('Image must be an NxN matrix')
 
