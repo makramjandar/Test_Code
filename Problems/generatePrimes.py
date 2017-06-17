@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/python3
 
 import math
 

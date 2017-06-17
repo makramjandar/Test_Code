@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/python3
 
 
 def main():
@@ -12,12 +12,13 @@ def main():
             print('PASS: {} returned {}'.format(tests[i], temp_result))
         else:
             print('FAIL: {} returned {}, should have returned {}'.format(tests[i], temp_result, results[i]))
-    
+
     return 0
 
 def compress_string(string):
     '''
-    Compresses a string such that 'AAABCCDDDD' becomes 'A3BCCD4'. Only compresses the string if it saves space ('AABBCC' stays same).
+    Compresses a string such that 'AAABCCDDDD' becomes 'A3BCCD4'. Only compresses
+    the string if it saves space ('AABBCC' stays same).
     Input: string
     Output: string
     '''

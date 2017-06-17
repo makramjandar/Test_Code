@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/python3
 
 
 def main():
@@ -34,7 +34,8 @@ def is_substring(s1, s2):
 
 
 def is_rotation(s1, s2):
-    ''' Determines if a string s1 is a rotation of another string s2, by calling (only once) a function is_substring. Returns a Boolean '''
+    ''' Determines if a string s1 is a rotation of another string s2, by calling
+    (only once) a function is_substring. Returns a Boolean '''
     if s1 is None or s2 is None:
         return False
 

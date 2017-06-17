@@ -51,7 +51,8 @@ def main():
 
 def zero_row_col_matrix(matrix):
     '''
-    Finds the zeroes in a given matrix and zeroes out the entire row and column they are in. Done in place
+    Finds the zeroes in a given matrix and zeroes out the entire row and
+    column they are in. Done in place
     Input: MxN matrix
     Output: MxN matrix
     '''

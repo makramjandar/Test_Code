@@ -26,7 +26,7 @@ def main():
 def fib_memoization(n, d={1:1, 2:1}):
     '''
     Calculates the nth Fibonacci number
-    Input: n is integer, d is dictionary of previously calculated Fibonacci numbers
+    Input: n is integer, d is dict of previously calculated Fibonacci numbers
     Output: integer, the nth Fibonacci number
     '''
     # Input checks

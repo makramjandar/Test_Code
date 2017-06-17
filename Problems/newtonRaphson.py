@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/python3
 
 def main():
     # X^2 - 1
@@ -14,7 +14,8 @@ def main():
 
 def print_poly(polynomial):
     '''
-    Creates a string for a given polynomial, entered as a tuple of coefficients whee the index i of the item represents the power of the variable x.
+    Creates a string for a given polynomial, entered as a tuple of coefficients
+    where the index i of the item represents the power of the variable x.
     '''
     if polynomial[0] == 0:
         output = ''
@@ -31,7 +32,9 @@ def print_poly(polynomial):
 
 def eval_polynomial(polynomial, x):
     '''
-    Inputs a tuple of coefficients a_i where the index i of the item represents the power of the variable x. Evaluates and returns the polynomial for given value of x.
+    Inputs a tuple of coefficients a_i where the index i of the item represents
+    the power of the variable x. Evaluates and returns the polynomial for given
+    value of x.
     '''
     result = 0
     for i, a in enumerate(polynomial):
@@ -42,7 +45,9 @@ def eval_polynomial(polynomial, x):
 
 def compute_derivative(polynomial):
     '''
-    Inputs a tuple of coefficients a_i where the index i of the item represents the power of the variable x. Returns a tuple in similar form that represents the derivative of the given polynomial.
+    Inputs a tuple of coefficients a_i where the index i of the item represents
+    the power of the variable x. Returns a tuple in similar form that represents
+    the derivative of the given polynomial.
     '''
     derivative = []
     for a, i in enumerate(polynomial):
@@ -56,8 +61,10 @@ def newton_raphson(polynomial, epsilon=0.01):
     General approximation to find the roots of a polynomial in one variable.
     p(x) = a_n * x^n + a_n-1 * x^n-1 + ... + a_1 * x + a_0
     Find r such that p(r) = 0
-    If g is an approximation of the root, then g - p(g)/p'(g) is a better approximation, where p' is the derivative of p.
-    Input is tuple of coefficients a_i where the index i of the item represents the power of the variable x
+    If g is an approximation of the root, then g - p(g)/p'(g) is a better
+    approximation, where p' is the derivative of p.
+    Input is tuple of coefficients a_i where the index i of the item represents the
+    power of the variable x
     '''
     guess = 1
     derivative = compute_derivative(polynomial)
