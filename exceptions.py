@@ -13,8 +13,13 @@ def main():
         print('Oh no, ValueError:', e)
     else:
         # Can put the else code in the try part, too
+        # Runs when try body completes with no exceptions
         for line in f:
             print(line, end='')
+    finally:
+        # Always executed after try, except, and else even if exceptions raised
+        # or hit break/continue/return statement. Good for clean-up (closing files)
+        pass
 
     # Raise own exceptions
     try:
