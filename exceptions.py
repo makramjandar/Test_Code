@@ -18,8 +18,19 @@ def main():
             print(line, end='')
     finally:
         # Always executed after try, except, and else even if exceptions raised
-        # or hit break/continue/return statement. Good for clean-up (closing files)
+        # or hit break/continue/return statement. Good for clean-up
+        # f.close()
         pass
+
+    # Exceptions in a while loop
+    while True:
+        try:
+            n = input('Please enter an integer: ')
+            n = int(n)
+            break
+        except ValueError:
+            print('Input not an integer, please try again: ')
+    print('Correct input!')
 
     # Raise own exceptions
     try:
@@ -31,6 +42,11 @@ def main():
     testBool = True
     if testBool:
         raise CustomException('NOOOOOO!')
+
+
+    # Assert that input is correct
+    grades = [79, 92, 84]
+    assert not len(grades) == 0, 'no grades data'
 
     return 0
 
