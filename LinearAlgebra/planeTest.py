@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/Python3
 
 from vector import Vector
 from plane import Plane

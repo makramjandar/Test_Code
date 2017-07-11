@@ -1,4 +1,4 @@
-#!/Applications/anaconda/envs/Python3/bin
+#!/usr/local/bin/Python3
 # Based on code created for Udacity Linear Algebra Refresher course
 
 
