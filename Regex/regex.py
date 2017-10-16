@@ -2,12 +2,13 @@
 
 import re
 
+
 def main():
     '''Examples Using Regular Expressions in Python'''
 
     printRomanNumerals('sonnets.txt')
     replaceWord('sonnets.txt', 'beauty', 'vomit')
-    #replaceWord('sonnets.txt', 'love', 'shart')
+    # replaceWord('sonnets.txt', 'love', 'shart')
 
     return 0
 
@@ -25,7 +26,6 @@ def printRomanNumerals(filename):
         if match:
             print(match.group())
 
-
     fh.close()
     return 0
 
@@ -40,7 +40,7 @@ def replaceWord(filename, original, new):
     for line in fh:
         if re.search(pattern, line):
             print(pattern.sub(new, line), end='')
-            #print(re.sub(pattern, new, line), end='')
+            # print(re.sub(pattern, new, line), end='')
 
     fh.close()
     return 0
