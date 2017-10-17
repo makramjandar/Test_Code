@@ -24,9 +24,23 @@ class Food(object):
             str(self.calories) + '>'
 
 
+def buildMenu(names, values, calories):
+    """names, values, calories lists of same length.
+        name a list of strings
+        values and calories lists of numbers
+        returns list of Foods"""
+
+    menu = []
+    for i in range(len(values)):
+        menu.append(Food(names[i], values[i], calories[i]))
+    return menu
+
+
 def greedy(items, maxCost, keyFunction):
-    """Assumes items is a list, maxCost >= 0, keyFunction maps elements of
-    items to numbers"""
+    """Assumes items is a list, maxCost >= 0
+        keyFunction maps elements of items to numbers, defines sorting order
+        Assumes items have getCost and getValue methods that return numbers
+        """
     itemsCopy = sorted(items, key=keyFunction, reverse=True)
     result = []
     totalValue, totalCost = 0.0, 0.0
