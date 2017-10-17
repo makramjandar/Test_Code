@@ -1,3 +1,7 @@
+#!/usr/local/bin/python
+# Code Fights Alternating Sums Problem
+
+
 def alternatingSums(a):
     # teamOne = [n for i, n in enumerate(a) if i % 2 == 0]
     # teamTwo = [n for i, n in enumerate(a) if i % 2 == 1]

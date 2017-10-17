@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-#  Code Fights Arcade Mode
+#  Code Fights Reverse Parentheses Problem
 
 
 def reverseParentheses(s):
