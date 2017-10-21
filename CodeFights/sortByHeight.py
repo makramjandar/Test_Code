@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-#  Code Fights Arcade Mode
+# Code Fights Sort by Height Problem
 
 
 def sortByHeight(a):

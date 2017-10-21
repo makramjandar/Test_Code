@@ -1,3 +1,7 @@
+#!/usr/local/bin/python
+# Code Fights Shape Area Problem
+
+
 def shapeArea(n):
     if n < 1 or n > 10**4:
         raise ValueError
