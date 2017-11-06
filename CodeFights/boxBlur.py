@@ -3,7 +3,14 @@
 
 
 def boxBlur(image):
-    pass
+    new_image = []
+    for r in range(1, len(image) - 1):
+        new_row = []
+        for c in range(1, len(image[0]) - 1):
+            new_row.append(sum([image[r + a][c + b] for a in [-1, 0, 1]
+                                for b in [-1, 0, 1]]) // 9)
+        new_image.append(new_row)
+    return new_image
 
 
 def main():
