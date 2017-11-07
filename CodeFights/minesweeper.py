@@ -3,6 +3,11 @@
 
 
 def minesweeper(matrix):
+    '''
+    Convert minesweeper matrix showing True if mine in that cell, False
+        otherwise into a matrix with counts of how many neighboring mines.
+        Neighbor is a cell that shares at least a corner.
+    '''
     num_mines = []
     rows = len(matrix)
     cols = len(matrix[0])
@@ -10,7 +15,11 @@ def minesweeper(matrix):
     for r in range(rows):
         curr_row = []
         for c in range(cols):
-            curr_row.append(sum([matrix[r + i][c + j] for i in adj if (r + i >= 0 and r + i < rows) for j in adj if (c + j >= 0 and c + j < cols and not(i == 0 and j == 0))]))
+            # Add neighboring cells if not out of bounds or cell itself
+            curr_row.append(sum([matrix[r + i][c + j] for i in adj
+                            if (r + i >= 0 and r + i < rows) for j in adj
+                            if (c + j >= 0 and c + j < cols and
+                                not(i == 0 and j == 0))]))
         num_mines.append(curr_row)
 
     return num_mines
