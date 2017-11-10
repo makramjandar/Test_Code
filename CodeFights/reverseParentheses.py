@@ -37,12 +37,13 @@ def main():
     ]
 
     for t in tests:
-        print("TESTING: {}".format(t[0]))
-        t1 = reverseParentheses(t[0])
-        if (t1 == t[1]):
-            print("PASSED: {}".format(t1))
+        res = reverseParentheses(t[0])
+        if (t[1] == res):
+            print("PASSED: reverseParentheses({}) returned {}"
+                  .format(t[0], res))
         else:
-            print("FAILED: {}".format(t1))
+            print("FAILED: reverseParentheses({}) returned {}, answer: {}"
+                  .format(t[0], res, t[1]))
 
 
 if __name__ == '__main__':

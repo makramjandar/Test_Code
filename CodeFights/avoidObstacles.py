@@ -26,7 +26,7 @@ def main():
             print("PASSED: avoidObstacles({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: avoidObstacles({}) returned {}, should have returned {}"
+            print("FAILED: avoidObstacles({}) returned {}, answer: {}"
                   .format(t[0], res, t[1]))
 
 

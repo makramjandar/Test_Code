@@ -76,8 +76,8 @@ def main():
             print("PASSED: areSimilar({}, {}) returned {}"
                   .format(t[0], t[1], res))
         else:
-            print("FAILED: areSimilar({}, {}) should have returned {}"
-                  .format(t[0], t[1], t[2]))
+            print("FAILED: areSimilar({}, {}) returned {}, answer: {}"
+                  .format(t[0], t[1], res, t[2]))
 
 
 if __name__ == '__main__':

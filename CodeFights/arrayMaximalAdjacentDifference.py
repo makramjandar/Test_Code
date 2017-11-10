@@ -20,8 +20,8 @@ def main():
             print("PASSED: arrayMaximalAdjacentDifference({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: arrayMaximalAdjacentDifference({}) returned {}, should have returned {}"
-                  .format(t[0], res, t[1]))
+            print(("FAILED: arrayMaximalAdjacentDifference({}) returned {},"
+                   "answer: {}").format(t[0], res, t[1]))
 
 
 if __name__ == '__main__':

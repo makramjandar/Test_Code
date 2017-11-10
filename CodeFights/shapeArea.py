@@ -21,8 +21,8 @@ def main():
             if r == results[i]:
                 print("PASSED: shapeArea({}) returned {}".format(t, r))
             else:
-                print("FAILED: shapeArea({}) returned\
-                 {}, vs {}".format(t, r, results[i]))
+                print("FAILED: shapeArea({}) returned {}, answer: {}"
+                      .format(t, r, results[i]))
         except ValueError:
             print("PASSED ValueError test")
 

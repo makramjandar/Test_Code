@@ -7,7 +7,8 @@ def palindromeRearranging(inputString):
     is_even_len = len(inputString) % 2 == 0
     letter_freq = Counter(inputString)
     odd_counts = sum([freq % 2 for char, freq in letter_freq.items()])
-    return (is_even_len and odd_counts == 0) or (not is_even_len and odd_counts == 1)
+    return ((is_even_len and odd_counts == 0) or
+            (not is_even_len and odd_counts == 1))
 
 
 def main():
@@ -27,8 +28,8 @@ def main():
             print("PASSED: palindromeRearranging({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: palindromeRearranging({}) should have returned {}"
-                  .format(t[0], t[1]))
+            print("FAILED: palindromeRearranging({}) returned {}, answer: {}"
+                  .format(t[0], res, t[1]))
 
 
 if __name__ == '__main__':

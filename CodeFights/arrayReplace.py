@@ -19,7 +19,7 @@ def main():
             print("PASSED: arrayReplace({}, {}, {}) returned {}"
                   .format(t[0], t[1], t[2], res))
         else:
-            print("FAILED: arrayReplace({}, {}, {}) returned {}, should have returned {}"
+            print("FAILED: arrayReplace({}, {}, {}) returned {}, answer: {}"
                   .format(t[0], t[1], t[2], res, t[3]))
 
 

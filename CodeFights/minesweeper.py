@@ -17,9 +17,9 @@ def minesweeper(matrix):
         for c in range(cols):
             # Add neighboring cells if not out of bounds or cell itself
             curr_row.append(sum([matrix[r + i][c + j] for i in adj
-                            if (r + i >= 0 and r + i < rows) for j in adj
-                            if (c + j >= 0 and c + j < cols and
-                                not(i == 0 and j == 0))]))
+                                 if (r + i >= 0 and r + i < rows) for j in adj
+                                 if (c + j >= 0 and c + j < cols and
+                                     not(i == 0 and j == 0))]))
         num_mines.append(curr_row)
 
     return num_mines
@@ -69,7 +69,7 @@ def main():
             print("PASSED: minesweeper({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: minesweeper({}) returned {}, should have returned {}"
+            print("FAILED: minesweeper({}) returned {}, answer: {}"
                   .format(t[0], res, t[1]))
 
 

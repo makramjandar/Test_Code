@@ -83,7 +83,7 @@ def main():
             print("PASSED: boxBlur({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: boxBlur({}) returned {}, should have returned {}"
+            print("FAILED: boxBlur({}) returned {}, answer: {}"
                   .format(t[0], res, t[1]))
 
 

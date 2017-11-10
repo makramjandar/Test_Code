@@ -39,7 +39,7 @@ def main():
             print("PASSED: isIPv4Address({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: isIPv4Address({}) returned {}, should have returned {}"
+            print("FAILED: isIPv4Address({}) returned {}, answer: {}"
                   .format(t[0], res, t[1]))
 
 

@@ -33,8 +33,8 @@ def main():
             print("PASSED: areEquallyStrong({}, {}, {}, {}) returned {}"
                   .format(t[0], t[1], t[2], t[3], res))
         else:
-            print("FAILED: areEquallyStrong({}, {}, {}, {}) returned {}, should have returned {}"
-                  .format(t[0], t[1], t[2], t[3], res, t[4]))
+            print(("FAILED: areEquallyStrong({}, {}, {}, {}) returned {},"
+                   "answer: {}").format(t[0], t[1], t[2], t[3], res, t[4]))
 
 
 if __name__ == '__main__':

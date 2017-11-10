@@ -5,7 +5,7 @@
 def addBorder(picture):
     picSize = len(picture[0]) + 2
     padding = '*' * picSize
-    return [padding]+ ['*' + row + '*' for row in picture] + [padding]
+    return [padding] + ['*' + row + '*' for row in picture] + [padding]
 
 
 def main():
