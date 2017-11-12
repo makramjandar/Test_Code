@@ -3,7 +3,14 @@
 
 
 def chessBoardCellColor(cell1, cell2):
-    pass
+    '''
+    Determine if the two given cells on chess board are same color
+    A, C, E, G odd cells are same color as B, D, F, H even cells
+    '''
+    def get_color(cell):
+        return ("DARK" if (cell[0] in "ACEG" and int(cell[1]) % 2 == 1) or
+                (cell[0] in "BDFH" and int(cell[1]) % 2 == 0) else "LIGHT")
+    return get_color(cell1) == get_color(cell2)
 
 
 def main():
