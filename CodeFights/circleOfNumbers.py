@@ -3,13 +3,16 @@
 
 
 def circleOfNumbers(n, firstNumber):
-    pass
+    mid = n / 2
+    return (mid + firstNumber if firstNumber < mid else firstNumber - mid)
 
 
 def main():
     tests = [
-        ["crazy", "dsbaz"],
-        ["z", "a"]
+        [10, 2, 7],
+        [10, 7, 2],
+        [4, 1, 3],
+        [6, 3, 0]
     ]
 
     for t in tests:
