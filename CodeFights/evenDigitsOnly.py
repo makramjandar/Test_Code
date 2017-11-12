@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Add Border Problem
+# Code Fights Even Digits Only Problem
 
 
 def evenDigitsOnly(n):

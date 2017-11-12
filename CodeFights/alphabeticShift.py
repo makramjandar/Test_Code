@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Alternating Sums Problem
+# Code Fights Alphabetic Shift Problem
 
 
 def alphabeticShift(inputString):

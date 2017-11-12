@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Add Border Problem
+# Code Fights Array Replace Problem
 
 
 def arrayReplace(inputArray, elemToReplace, substitutionElem):

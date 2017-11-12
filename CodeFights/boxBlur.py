@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Add Border Problem
+# Code Fights Box Blur Problem
 
 
 def boxBlur(image):
