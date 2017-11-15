@@ -4,7 +4,7 @@
 
 
 class Node(object):
-    """docstring for Node"""
+    """Creates a node for a graph"""
 
     def __init__(self, name):
         """Assumes name is a string"""
@@ -18,7 +18,7 @@ class Node(object):
 
 
 class Edge(object):
-    """docstring for Edge"""
+    """Creates an edge for a graph"""
 
     def __init__(self, src, dest):
         """Assumes src and dest are nodes"""
@@ -32,11 +32,11 @@ class Edge(object):
         return self.dest
 
     def __str__(self):
-        return self.src.getName() + '->' + self.dest.getName()
+        return self.src.getName() + ' -> ' + self.dest.getName()
 
 
 class Digraph(object):
-    """docstring for Digraph"""
+    """edges is a dict mapping each node to a list of its children"""
 
     def __init__(self):
         self.edges = {}
@@ -70,5 +70,44 @@ class Digraph(object):
         result = ''
         for src in self.edges:
             for dest in self.edges[src]:
-                result = result + src.getName() + '->' + dest.getName() + '\n'
+                result += src.getName() + ' -> ' + dest.getName() + '\n'
         return result[:-1]  # omit final newline
+
+
+class Graph(Digraph):
+    """Graph is subclass of directional graph (Digraph)"""
+
+    def addEdge(self, edge):
+        Digraph.addEdge(self, edge)
+        rev = Edge(edge.getDestination(), edge.getSource())
+        Digraph.addEdge(self, rev)
+
+
+def buildCityGraph(graphType):
+    """Airline flights between cities example"""
+    g = graphType()
+    cities = ('Boston', 'Providence', 'New York', 'Chicago', 'Denver',
+              'Phoenix', 'Los Angeles')
+    for name in cities:
+        g.addNode(Node(name))
+
+    g.addEdge(Edge(g.getNode('Boston'), g.getNode('Providence')))
+    g.addEdge(Edge(g.getNode('Boston'), g.getNode('New York')))
+    g.addEdge(Edge(g.getNode('Providence'), g.getNode('Boston')))
+    g.addEdge(Edge(g.getNode('Providence'), g.getNode('New York')))
+    g.addEdge(Edge(g.getNode('New York'), g.getNode('Chicago')))
+    g.addEdge(Edge(g.getNode('Chicago'), g.getNode('Denver')))
+    g.addEdge(Edge(g.getNode('Denver'), g.getNode('Phoenix')))
+    g.addEdge(Edge(g.getNode('Denver'), g.getNode('New York')))
+    g.addEdge(Edge(g.getNode('Los Angeles'), g.getNode('Boston')))
+
+    return g
+
+
+def main():
+    print(buildCityGraph(Digraph))
+    print(buildCityGraph(Graph))
+
+
+if __name__ == '__main__':
+    main()
