@@ -3,7 +3,7 @@
 
 
 def arrayPacking(a):
-    return sum([n << 8*i for i, n in enumerate(a)])
+    return sum([n << 8 * i for i, n in enumerate(a)])
 
 
 def main():
