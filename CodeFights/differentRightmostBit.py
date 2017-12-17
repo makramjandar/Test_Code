@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Different Right-most Bit (Core) Problem
+# Code Fights Different Right-most Bit (Core) Problem
 
 
 def differentRightmostBit(n, m):
