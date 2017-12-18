@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Mirror Bits (Core) Problem
+# Code Fights Memory Pills Problem
 
 from itertools import dropwhile
 
