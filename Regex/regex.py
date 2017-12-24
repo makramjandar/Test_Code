@@ -33,7 +33,8 @@ def printRomanNumerals(filename):
 def replaceWord(filename, original, new):
     '''Prints any line with original word in it replaced with new word'''
 
-    print('\nTime to replace the word {} with {} and print the improved line.\n'.format(original, new))
+    print('\nTime to replace the word {} with {} and print the '
+          'improved line.\n'.format(original, new))
 
     fh = open(filename, 'r')
     pattern = re.compile(original)
