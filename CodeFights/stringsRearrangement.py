@@ -1,5 +1,6 @@
 #!/usr/local/bin/python
 # Code Fights Cracking Password Problem
+# Bought hint for top Python solution
 
 import itertools
 
