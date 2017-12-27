@@ -12,18 +12,20 @@ def knapsackLight(value1, weight1, value2, weight2, maxW):
 
 def main():
     tests = [
+        [10, 5, 6, 4, 8, 10],
         []
     ]
 
     for t in tests:
-        res = knapsackLight(t[0], t[1], t[2])
-        ans = t[3]
+        res = knapsackLight(t[0], t[1], t[2], t[3], t[4])
+        ans = t[5]
         if ans == res:
-            print("PASSED: knapsackLight({}, {}, {}) returned {}"
-                  .format(t[0], t[1], t[2], res))
+            print("PASSED: knapsackLight({}, {}, {}, {}, {}) returned {}"
+                  .format(t[0], t[1], t[2], t[3], t[4], res))
         else:
-            print(("FAILED: knapsackLight({}, {}, {}) returned {},"
-                   "answer: {}").format(t[0], t[1], t[2], res, ans))
+            print(("FAILED: knapsackLight({}, {}, {}, {}, {}) returned {},"
+                   "answer: {}")
+                  .format(t[0], t[1], t[2], t[3], t[4], res, ans))
 
 
 if __name__ == '__main__':
