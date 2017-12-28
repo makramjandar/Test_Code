@@ -1,9 +1,10 @@
 #!/usr/local/bin/python
-# Code Fights Cracking Password Problem
+# Code Fights Longest Digits Prefix Problem
+
+import re
 
 
 def longestDigitsPrefix(inputString):
-    import re
     return re.findall(r'^\d*', inputString)[0]
 
 
