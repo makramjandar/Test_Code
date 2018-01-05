@@ -1,18 +1,23 @@
 #!/usr/local/bin/python
 # Code Fights Growing Plant Problem
 
+import math
+
 
 def growingPlant(upSpeed, downSpeed, desiredHeight):
     if upSpeed >= desiredHeight:
         return 1
     else:
-        return (desiredHeight // (upSpeed - downSpeed))
+        return math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed) + 1)
 
 
 def main():
     tests = [
         [100, 10, 910, 10],
-        [10, 9, 4, 1]
+        [10, 9, 4, 1],
+        [5, 2, 7, 2],
+        [7, 3, 443, 110],
+        [6, 5, 10, 5]
     ]
 
     for t in tests:
