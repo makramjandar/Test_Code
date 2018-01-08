@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Growing Plant Problem
+# Code Fights Magical Well Problem
 
 
 def magicalWell(a, b, n):
