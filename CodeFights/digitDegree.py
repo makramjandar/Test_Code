@@ -29,8 +29,8 @@ def main():
             print("PASSED: digitsDegree({}) returned {}"
                   .format(t[0], res))
         else:
-            print(("FAILED: digitsDegree({}) returned {},"
-                   "answer: {}").format(t[0], res, ans))
+            print("FAILED: digitsDegree({}) returned {}, answer: {}"
+                  .format(t[0], res, ans))
 
 
 if __name__ == '__main__':
