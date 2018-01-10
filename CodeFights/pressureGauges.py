@@ -27,8 +27,8 @@ def main():
             print("PASSED: pressureGauges({}, {}) returned {}"
                   .format(t[0], t[1], res))
         else:
-            print(("FAILED: pressureGauges({}, {}) returned {},"
-                   "answer: {}").format(t[0], t[1], res, ans))
+            print("FAILED: pressureGauges({}, {}) returned {}, answer: {}"
+                  .format(t[0], t[1], res, ans))
 
 
 if __name__ == '__main__':
