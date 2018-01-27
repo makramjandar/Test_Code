@@ -3,15 +3,9 @@
 
 
 def isMAC48Address(inputString):
-    chunks = inputString.split("-")
-    if len(chunks) != 6:
-        return False
-    try:
-        for c in chunks:
-            int(c, 16)
-    except ValueError:
-        return False
-    return True
+    import re
+    pattern = re.compile(r'^(?:[A-Fa-f0-9]{1,2}-){5}(?:[A-Fa-f0-9]{1,2})$')
+    return bool(re.search(pattern, inputString))
 
 
 def main():
