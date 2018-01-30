@@ -1,31 +1,11 @@
 #!/usr/local/bin/python
 # Code Fights Line Encoding Problem
 
+import re
+
 
 def lineEncoding(s):
-    compressed_string = list()
-    count = 0
-    last_char = s[0]
-    for char in s:
-        if char == last_char:
-            count += 1
-        else:
-            if count > 1:
-                compressed_string.append(str(count))
-                compressed_string.append(last_char)
-                count = 1
-                last_char = char
-            else:
-                # count is 1
-                compressed_string.append(last_char)
-                count = 1
-                last_char = char
-    if count > 1:
-        compressed_string.append(str(count))
-
-    compressed_string.append(last_char)
-
-    return ''.join(compressed_string)
+    return re.sub(r"(.)\1+", lambda m: str(len(m.group(0))) + m.group(1), s)
 
 
 def main():
