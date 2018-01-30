@@ -3,7 +3,29 @@
 
 
 def lineEncoding(s):
-    return s
+    compressed_string = list()
+    count = 0
+    last_char = s[0]
+    for char in s:
+        if char == last_char:
+            count += 1
+        else:
+            if count > 1:
+                compressed_string.append(str(count))
+                compressed_string.append(last_char)
+                count = 1
+                last_char = char
+            else:
+                # count is 1
+                compressed_string.append(last_char)
+                count = 1
+                last_char = char
+    if count > 1:
+        compressed_string.append(str(count))
+
+    compressed_string.append(last_char)
+
+    return ''.join(compressed_string)
 
 
 def main():
