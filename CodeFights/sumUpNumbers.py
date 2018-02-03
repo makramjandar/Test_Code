@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Sum Up Problem
+# Code Fights Sum Up Numbers Problem
 
 import re
 
