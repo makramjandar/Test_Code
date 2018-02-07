@@ -3,12 +3,30 @@
 
 
 def digitsProduct(product):
-    ans = min([int(str(i) + str(product // i)) for i in
-               range(1, round(product**0.5) + 1) if product % i == 0])
-    if ans == product:
-        return -1
+    def get_single_dig_factors(product):
+        # Helper function to generate single-digit factors of product
+        n = product
+        factors = []
+        while n > 1:
+            for i in range(9, 1, -1):
+                if n % i == 0:
+                    factors.append(i)
+                    n /= i
+                    break
+            if n == product:
+                return None
+        return sorted(factors)
+
+    if product == 0:
+        return 10
+    elif product < 10:
+        return product
+
+    factors = get_single_dig_factors(product)
+    if factors:
+        return int(''.join([str(i) for i in factors]))
     else:
-        return ans
+        return -1
 
 
 def main():
