@@ -7,14 +7,13 @@ def digitsProduct(product):
         # Helper function to generate single-digit factors of product
         n = product
         factors = []
-        while n > 1:
-            for i in range(9, 1, -1):
-                if n % i == 0:
-                    factors.append(i)
-                    n /= i
-                    break
-            if n == product:
-                return None
+        for i in range(9, 1, -1):
+            while n % i == 0 and n > 1:
+                factors.append(i)
+                n /= i
+        if n > 9:
+            # At least one factor is a two-digit prime number
+            return None
         return sorted(factors)
 
     if product == 0:
@@ -39,7 +38,15 @@ def main():
         [1, 1],
         [243, 399],
         [576, 889],
-        [360, 589]
+        [360, 589],
+        [24, 38],
+        [120, 358],
+        [168, 378],
+        [192, 388],
+        [216, 389],
+        [600, 3558],
+        [33, -1],
+        [81, 99]
     ]
 
     for t in tests:
