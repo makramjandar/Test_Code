@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# Code Fights Different D Problem
+# Code Fights Different Squares Problem
 
 
 def differentSquares(matrix):
