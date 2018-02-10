@@ -1,7 +1,6 @@
 #!/usr/local/bin/python
 # Code Fights Simple Composition Problem
 
-from functools import reduce
 import math
 
 
@@ -11,11 +10,6 @@ def compose(f, g):
 
 def simpleComposition(f, g, x):
     return compose(eval(f), eval(g))(x)
-
-
-# Generic composition of n functions:
-def compose_n(*functions):
-    return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
 
 
 def main():
