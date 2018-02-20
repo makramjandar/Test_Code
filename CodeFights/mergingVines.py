@@ -1,21 +1,16 @@
 #!/usr/local/bin/python
 # Code Fights Merging Vines Problem
 
-from functools import reduce
-import math
-
-
-def compose(functions):
-    return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
-
-
-def functionsComposition(functions, x):
-    return compose(map(eval, functions))(x)
-
 
 def mergingVines(vines, n):
     def nTimes(n):
-        pass
+        def func_decor(func):
+            def func_wrapper(vines):
+                for _ in range(n):
+                    vines = func(vines)
+                return vines
+            return func_wrapper
+        return func_decor
 
     @nTimes(n)
     def sumOnce(vines):
@@ -29,22 +24,22 @@ def mergingVines(vines, n):
 
 def main():
     tests = [
-        [["abs", "math.sin", "lambda x: 3 * x / 2"], math.pi, 1],
-        [["math.sin", "math.cos", "lambda x: x * 2", "lambda x: x ** 2"],
-         1, math.sin(math.cos((1**2) * 2))],
-        [["lambda z: z", "lambda z: 1.0 * z / 13"], -1000, (-1000 / 13) * 1.0],
-        [["float"], 1000, 1000],
-        [["abs"], -20, 20]
+        [[1, 2, 3, 4, 5], 2, [10, 5]],
+        [[1, 2, 3, 4, 5, 6], 10, [21]],
+        [[5], 4, [5]],
+        [[43, 54, 8, 12, 0, 12, 7, 7, 4], 0, [43, 54, 8, 12, 0, 12, 7, 7, 4]],
+        [[13, 11, 9, 5, 7, 5, 12, 10, 1, 2, 11, 2, 10, 10, 18, 16, 20, 13, 9,
+          100], 4, [142, 142]]
     ]
 
     for t in tests:
-        res = functionsComposition(t[0], t[1])
+        res = mergingVines(t[0], t[1])
         ans = t[2]
         if ans == res:
-            print("PASSED: functionsComposition({}, {}) returned {}"
+            print("PASSED: mergingVines({}, {}) returned {}"
                   .format(t[0], t[1], res))
         else:
-            print("FAILED: functionsComposition({}, {}) returned {},"
+            print("FAILED: mergingVines({}, {}) returned {},"
                   "answer: {}".format(t[0], t[1], res, ans))
 
 
