@@ -9,8 +9,16 @@ def sortCodefighters(codefighters):
 
 
 class CodeFighter():
-    def __init__(self, args):
-        pass
+    def __init__(self, username, eyeD, xp):
+        self.username = username
+        self.eyeD = int(eyeD)
+        self.xp = int(xp)
+
+    def __lt__(self, other):
+        return (self.xp, other.eyeD) < (other.xp, self.eyeD)
+
+    def __repr__(self):
+        return self.username
 
 
 def main():
