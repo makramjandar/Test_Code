@@ -6,7 +6,15 @@ class Team(object):
     def __init__(self, names):
         self.names = names
 
-    # TO DO
+    def __call__(self):
+        first = [n[0].lower() for n in self.names]
+        remaining = [n[-1].lower() for n in self.names]
+        count = 0
+        for letter in first:
+            if letter not in remaining:
+                count += 1
+            elif letter in remaining:
+                remaining.remove(letter)
 
 
 def isCoolTeam(team):
