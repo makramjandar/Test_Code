@@ -3,7 +3,14 @@
 
 
 class Mammal(object):
-    pass
+    def __init__(self, age):
+        self.age = age
+
+    def toHuman(self):
+        return self.age
+
+    def __str__(self):
+        return "{} y.o. in human age".format(self.toHuman())
 
 
 class Cat(Mammal):
