@@ -1,8 +1,8 @@
 #!/usr/local/bin/python
-# Code Fights Digits Degree Problem
+# Code Fights Digit Degree Problem
 
 
-def digitsDegree(n):
+def digitDegree(n):
     degree = 0
     if n < 10:
         return 0
@@ -23,13 +23,13 @@ def main():
     ]
 
     for t in tests:
-        res = digitsDegree(t[0])
+        res = digitDegree(t[0])
         ans = t[1]
         if ans == res:
-            print("PASSED: digitsDegree({}) returned {}"
+            print("PASSED: digitDegree({}) returned {}"
                   .format(t[0], res))
         else:
-            print("FAILED: digitsDegree({}) returned {}, answer: {}"
+            print("FAILED: digitDegree({}) returned {}, answer: {}"
                   .format(t[0], res, ans))
 
 
