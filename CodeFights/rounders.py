@@ -3,7 +3,14 @@
 
 
 def rounders(value):
-    return value
+    i = 0
+    while value > 10:
+        digit = value % 10
+        if digit >= 5:
+            value += 10
+        value //= 10
+        i += 1
+    return value * (10**i)
 
 
 def main():
