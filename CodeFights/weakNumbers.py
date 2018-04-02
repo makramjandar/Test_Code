@@ -14,7 +14,9 @@ def weakNumbers(n):
         return divs
 
     divs = get_divisors(n)
-    w = []
+    weaks = [sum([1 for item in divs[:i + 1] if item > div]) for i, div
+             in enumerate(divs)]
+    return [max(weaks), weaks.count(max(weaks))]
 
 
 def main():
