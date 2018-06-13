@@ -1,4 +1,5 @@
 #!/urs/local/bin/python
+# Automate the Boring Stuff Chapter 6
 # pw.py - an insecure password locker program
 
 import sys
